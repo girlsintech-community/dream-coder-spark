@@ -6,11 +6,13 @@ import ScheduleSection from "@/components/ScheduleSection";
 import PrizeSection from "@/components/PrizeSection";
 import Footer from "@/components/Footer";
 import Snowfall from "@/components/Snowfall";
+import BackgroundMusic from "@/components/BackgroundMusic";
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
       <Snowfall />
+      <BackgroundMusic />
       <Navbar />
       <main>
         <HeroSection />
