@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
+import gltLogo from "@/assets/glt-logo.png";
 
 const navLinks = [
   { href: "#about", label: "About" },
@@ -40,6 +41,7 @@ const Navbar = () => {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <a href="#" className="flex items-center gap-2 group">
+            <img src={gltLogo} alt="Girls Leading Tech" className="w-10 h-10 object-contain" />
             <span className="font-display font-bold text-xl">
               Code at <span className="gradient-text">Christmas</span>
             </span>
