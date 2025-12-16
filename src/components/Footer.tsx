@@ -13,10 +13,12 @@ const Footer = () => {
           <p className="text-muted-foreground mb-8 max-w-lg mx-auto">
             Join us for an unforgettable 4 hours of coding, creativity, and cozy vibes!
           </p>
-          <Button variant="hero" size="xl" className="group">
-            Register for Free
-            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-          </Button>
+          <a href="https://unstop.com/hackathons/code-at-christmas-chandigarh-group-of-colleges-cgc-landran-punjab-1609270" target="_blank" rel="noopener noreferrer">
+            <Button variant="hero" size="xl" className="group">
+              Register for Free
+              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            </Button>
+          </a>
         </div>
 
         {/* Footer Info */}
@@ -33,7 +35,7 @@ const Footer = () => {
           </div>
 
           <a 
-            href="https://www.linkedin.com/company/girls-leading-tech" 
+            href="https://www.linkedin.com/company/girlsleadingtech/" 
             target="_blank" 
             rel="noopener noreferrer"
             className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"

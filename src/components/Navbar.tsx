@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Menu, X, Sparkles } from "lucide-react";
+import { Menu, X } from "lucide-react";
 
 const navLinks = [
   { href: "#about", label: "About" },
@@ -40,9 +40,8 @@ const Navbar = () => {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <a href="#" className="flex items-center gap-2 group">
-            <Sparkles className="w-6 h-6 text-primary group-hover:scale-110 transition-transform" />
             <span className="font-display font-bold text-xl">
-              Vibe<span className="gradient-text">Hack</span>
+              Code at <span className="gradient-text">Christmas</span>
             </span>
           </a>
 
@@ -62,9 +61,11 @@ const Navbar = () => {
 
           {/* CTA Button */}
           <div className="hidden md:block">
-            <Button variant="glow" size="sm">
-              Register Now
-            </Button>
+            <a href="https://unstop.com/hackathons/code-at-christmas-chandigarh-group-of-colleges-cgc-landran-punjab-1609270" target="_blank" rel="noopener noreferrer">
+              <Button variant="glow" size="sm">
+                Register Now
+              </Button>
+            </a>
           </div>
 
           {/* Mobile Menu Toggle */}
@@ -93,9 +94,11 @@ const Navbar = () => {
                   {link.label}
                 </button>
               ))}
-              <Button variant="glow" className="mt-2">
-                Register Now
-              </Button>
+              <a href="https://unstop.com/hackathons/code-at-christmas-chandigarh-group-of-colleges-cgc-landran-punjab-1609270" target="_blank" rel="noopener noreferrer">
+                <Button variant="glow" className="mt-2 w-full">
+                  Register Now
+                </Button>
+              </a>
             </div>
           </div>
         )}

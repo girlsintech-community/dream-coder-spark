@@ -26,13 +26,13 @@ const HeroSection = () => {
           {/* Badge */}
           <div className="glass-card px-4 py-2 rounded-full mb-8 animate-fade-in flex items-center gap-2">
             <Sparkles className="w-4 h-4 text-golden-sparkle" />
-            <span className="text-sm font-medium">Girls Leading Tech Community Presents</span>
+            <span className="text-sm font-medium">A Girls-Only Virtual Hackathon</span>
           </div>
 
           {/* Main Title */}
           <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-display font-bold mb-6 animate-fade-in" style={{ animationDelay: "0.1s" }}>
-            <span className="block">Vibe Coding</span>
-            <span className="gradient-text text-glow">Hackathon</span>
+            <span className="block">Code at</span>
+            <span className="gradient-text text-glow">Christmas</span>
           </h1>
 
           {/* Subtitle */}
@@ -62,11 +62,13 @@ const HeroSection = () => {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 animate-fade-in" style={{ animationDelay: "0.5s" }}>
-            <Button variant="hero" size="xl" className="group">
-              Register Now
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </Button>
-            <Button variant="glass" size="xl">
+            <a href="https://unstop.com/hackathons/code-at-christmas-chandigarh-group-of-colleges-cgc-landran-punjab-1609270" target="_blank" rel="noopener noreferrer">
+              <Button variant="hero" size="xl" className="group">
+                Register Now
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </Button>
+            </a>
+            <Button variant="glass" size="xl" onClick={() => document.querySelector('#about')?.scrollIntoView({ behavior: 'smooth' })}>
               Learn More
             </Button>
           </div>
