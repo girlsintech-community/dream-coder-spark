@@ -1,7 +1,8 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Sparkles } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import CountdownTimer from "./CountdownTimer";
 import heroBg from "@/assets/hero-bg.jpg";
+import gltLogo from "@/assets/glt-logo.png";
 
 const HeroSection = () => {
   const hackathonDate = new Date("2025-12-24T12:00:00");
@@ -23,11 +24,12 @@ const HeroSection = () => {
       
       <div className="container relative z-10 px-4 pt-20 pb-12">
         <div className="flex flex-col items-center text-center max-w-4xl mx-auto">
-          {/* Badge */}
-          <div className="glass-card px-4 py-2 rounded-full mb-8 animate-fade-in flex items-center gap-2">
-            <Sparkles className="w-4 h-4 text-golden-sparkle" />
-            <span className="text-sm font-medium">A Girls-Only Virtual Hackathon</span>
-          </div>
+          {/* Logo */}
+          <img 
+            src={gltLogo} 
+            alt="Girls Leading Tech" 
+            className="w-32 h-32 md:w-40 md:h-40 mb-6 animate-fade-in object-contain"
+          />
 
           {/* Main Title */}
           <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-display font-bold mb-6 animate-fade-in" style={{ animationDelay: "0.1s" }}>
