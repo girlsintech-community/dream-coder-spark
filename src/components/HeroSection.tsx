@@ -16,11 +16,14 @@ const HeroSection = () => {
       />
       
       {/* Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/40 to-background" />
+      <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/30 to-background" />
       
-      {/* Subtle glow effects */}
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-[150px]" />
-      <div className="absolute bottom-1/3 right-1/3 w-80 h-80 bg-secondary/10 rounded-full blur-[150px]" />
+      {/* Aurora Borealis animated background */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="aurora-blob aurora-blob-1" />
+        <div className="aurora-blob aurora-blob-2" />
+        <div className="aurora-blob aurora-blob-3" />
+      </div>
       
       <div className="container relative z-10 px-4 pt-20 pb-12">
         <div className="flex flex-col items-center text-center max-w-4xl mx-auto">
@@ -33,37 +36,31 @@ const HeroSection = () => {
 
           {/* Main Title */}
           <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-display font-bold mb-6 animate-fade-in" style={{ animationDelay: "0.1s" }}>
-            <span className="block">Code at</span>
-            <span className="gradient-text text-glow">Christmas</span>
+            <span className="block text-foreground">Code at</span>
+            <span className="text-primary drop-shadow-[0_0_30px_hsl(0,72%,51%)]">Christmas</span>
           </h1>
 
           {/* Subtitle */}
-          <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl animate-fade-in" style={{ animationDelay: "0.2s" }}>
+          <p className="text-lg md:text-xl text-foreground/90 mb-8 max-w-2xl animate-fade-in" style={{ animationDelay: "0.2s" }}>
             A 4-hour virtual girls-only hackathon where you build your dream project in a cozy, 
             magical winter atmosphere ❄️
           </p>
 
           {/* Event Details */}
           <div className="flex flex-wrap justify-center gap-4 mb-10 animate-fade-in" style={{ animationDelay: "0.3s" }}>
-            <div className="glass-card px-5 py-3 rounded-xl">
+            <div className="glass-card px-5 py-3 rounded-xl border border-primary/30">
               <span className="text-primary font-semibold">📅 December 24, 2025</span>
             </div>
-            <div className="glass-card px-5 py-3 rounded-xl">
+            <div className="glass-card px-5 py-3 rounded-xl border border-secondary/30">
               <span className="text-secondary font-semibold">🕛 12:00 PM - 4:00 PM</span>
             </div>
-            <div className="glass-card px-5 py-3 rounded-xl">
+            <div className="glass-card px-5 py-3 rounded-xl border border-accent/30">
               <span className="text-accent font-semibold">💻 Virtual Event</span>
             </div>
           </div>
 
-          {/* Countdown */}
-          <div className="mb-10 animate-fade-in" style={{ animationDelay: "0.4s" }}>
-            <p className="text-sm text-muted-foreground mb-4 uppercase tracking-wider">Hackathon starts in</p>
-            <CountdownTimer targetDate={hackathonDate} />
-          </div>
-
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 animate-fade-in" style={{ animationDelay: "0.5s" }}>
+          <div className="flex flex-col sm:flex-row gap-4 mb-16 animate-fade-in" style={{ animationDelay: "0.4s" }}>
             <a href="https://unstop.com/hackathons/code-at-christmas-chandigarh-group-of-colleges-cgc-landran-punjab-1609270" target="_blank" rel="noopener noreferrer">
               <Button variant="hero" size="xl" className="group">
                 Register Now
@@ -73,6 +70,12 @@ const HeroSection = () => {
             <Button variant="glass" size="xl" onClick={() => document.querySelector('#about')?.scrollIntoView({ behavior: 'smooth' })}>
               Learn More
             </Button>
+          </div>
+
+          {/* Countdown - Full Width */}
+          <div className="w-full max-w-5xl animate-fade-in" style={{ animationDelay: "0.5s" }}>
+            <p className="text-sm text-foreground/80 mb-6 uppercase tracking-wider font-semibold">Hackathon starts in</p>
+            <CountdownTimer targetDate={hackathonDate} />
           </div>
         </div>
       </div>

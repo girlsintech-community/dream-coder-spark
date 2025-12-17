@@ -42,21 +42,21 @@ const CountdownTimer = ({ targetDate }: CountdownTimerProps) => {
   ];
 
   return (
-    <div className="flex gap-3 sm:gap-6 justify-center">
+    <div className="flex gap-4 sm:gap-8 md:gap-12 justify-center flex-wrap">
       {timeUnits.map((unit, index) => (
-        <div key={unit.label} className="flex items-center gap-3 sm:gap-6">
+        <div key={unit.label} className="flex items-center gap-4 sm:gap-8">
           <div className="flex flex-col items-center">
-            <div className="glass-card px-3 sm:px-6 py-3 sm:py-4 rounded-xl min-w-[60px] sm:min-w-[80px] animate-glow-pulse">
-              <span className="text-2xl sm:text-4xl font-display font-bold gradient-text">
+            <div className="glass-card px-6 sm:px-10 md:px-14 py-4 sm:py-6 md:py-8 rounded-2xl min-w-[80px] sm:min-w-[120px] md:min-w-[150px] border border-primary/30 animate-glow-pulse">
+              <span className="text-4xl sm:text-6xl md:text-7xl font-display font-bold text-primary drop-shadow-[0_0_20px_hsl(0,72%,51%)]">
                 {String(unit.value).padStart(2, "0")}
               </span>
             </div>
-            <span className="text-xs sm:text-sm text-muted-foreground mt-2 uppercase tracking-wider">
+            <span className="text-sm sm:text-base md:text-lg text-foreground/80 mt-3 uppercase tracking-wider font-semibold">
               {unit.label}
             </span>
           </div>
           {index < timeUnits.length - 1 && (
-            <span className="text-2xl sm:text-4xl font-bold text-primary animate-pulse hidden sm:block">:</span>
+            <span className="text-3xl sm:text-5xl md:text-6xl font-bold text-accent animate-pulse hidden sm:block">:</span>
           )}
         </div>
       ))}
