@@ -1,12 +1,10 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Trophy, Star } from "lucide-react";
-
 const PrizeSection = () => {
-  return (
-    <section id="prizes" className="py-24 px-4 relative">
+  return <section id="prizes" className="py-24 px-4 relative">
       <div className="container max-w-6xl mx-auto">
         <div className="text-center mb-16">
-          <span className="text-golden-sparkle font-semibold uppercase tracking-wider text-sm">✨ Grand Prize</span>
+          
           <h2 className="text-4xl md:text-5xl font-display font-bold mt-4 mb-6">
             Win <span className="gradient-text">Amazing Rewards</span>
           </h2>
@@ -34,25 +32,15 @@ const PrizeSection = () => {
               </p>
               
               <div className="flex flex-col gap-4 w-full max-w-md">
-                <div className="flex items-center gap-3 glass-card p-4 rounded-xl">
-                  <Trophy className="w-5 h-5 text-golden-sparkle" />
-                  <span className="text-foreground">For the most creative project</span>
-                </div>
-                <div className="flex items-center gap-3 glass-card p-4 rounded-xl">
-                  <Star className="w-5 h-5 text-primary" />
-                  <span className="text-foreground">Unlock your design potential</span>
-                </div>
+                
+                
               </div>
             </div>
           </CardContent>
         </Card>
 
-        <p className="text-center text-muted-foreground mt-8 max-w-lg mx-auto">
-          Build something magical and showcase your creativity to win this amazing prize!
-        </p>
+        
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default PrizeSection;
