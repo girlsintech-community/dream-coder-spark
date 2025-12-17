@@ -3,25 +3,18 @@ import { Volume2, VolumeX } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const BackgroundMusic = () => {
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [hasInteracted, setHasInteracted] = useState(false);
-  const iframeRef = useRef<HTMLIFrameElement>(null);
+  const [isPlaying, setIsPlaying] = useState(true);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
 
-  // YouTube video ID extracted from the URL
+  // YouTube video ID
   const videoId = "cSoI27m1b8g";
 
   useEffect(() => {
-    // Auto-prompt user to enable music on first interaction
-    const handleFirstInteraction = () => {
-      if (!hasInteracted) {
-        setHasInteracted(true);
-        setIsPlaying(true);
-      }
-    };
-
-    document.addEventListener("click", handleFirstInteraction, { once: true });
-    return () => document.removeEventListener("click", handleFirstInteraction);
-  }, [hasInteracted]);
+    // Create audio element that plays automatically
+    const audio = new Audio();
+    audio.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&loop=1&playlist=${videoId}`;
+    audioRef.current = audio;
+  }, []);
 
   const toggleMusic = () => {
     setIsPlaying(!isPlaying);
@@ -29,13 +22,12 @@ const BackgroundMusic = () => {
 
   return (
     <>
-      {/* Hidden YouTube iframe for audio */}
+      {/* Hidden YouTube iframe for audio - starts automatically */}
       {isPlaying && (
         <iframe
-          ref={iframeRef}
           className="hidden"
-          src={`https://www.youtube.com/embed/${videoId}?autoplay=1&loop=1&playlist=${videoId}&controls=0`}
-          allow="autoplay"
+          src={`https://www.youtube.com/embed/${videoId}?autoplay=1&loop=1&playlist=${videoId}&controls=0&mute=0`}
+          allow="autoplay; encrypted-media"
           title="Background Music"
         />
       )}
@@ -45,7 +37,7 @@ const BackgroundMusic = () => {
         variant="glass"
         size="icon"
         onClick={toggleMusic}
-        className="fixed bottom-6 right-6 z-50 w-12 h-12 rounded-full shadow-lg hover:scale-110 transition-transform"
+        className="fixed bottom-6 right-6 z-50 w-12 h-12 rounded-full shadow-lg hover:scale-110 transition-transform border-primary/30"
         aria-label={isPlaying ? "Mute music" : "Play music"}
       >
         {isPlaying ? (
