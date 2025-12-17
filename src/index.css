@@ -92,6 +92,7 @@
 @layer base {
   * {
     @apply border-border;
+    cursor: url('/santa-cursor.png'), auto;
   }
 
   body {
@@ -101,6 +102,10 @@
 
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Playfair Display', serif;
+  }
+
+  a, button {
+    cursor: url('/santa-cursor.png'), pointer;
   }
 }
 
@@ -138,6 +143,78 @@
 
   .text-glow {
     text-shadow: 0 0 40px hsl(0 72% 51% / 0.5);
+  }
+
+  /* Aurora blobs */
+  .aurora-blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: 0.4;
+    mix-blend-mode: screen;
+  }
+
+  .aurora-blob-1 {
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, hsl(0 72% 51% / 0.6), transparent 70%);
+    top: -200px;
+    left: -100px;
+    animation: aurora-move-1 15s ease-in-out infinite;
+  }
+
+  .aurora-blob-2 {
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, hsl(142 70% 35% / 0.5), transparent 70%);
+    top: 50%;
+    right: -150px;
+    animation: aurora-move-2 18s ease-in-out infinite;
+  }
+
+  .aurora-blob-3 {
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, hsl(45 93% 58% / 0.4), transparent 70%);
+    bottom: -100px;
+    left: 30%;
+    animation: aurora-move-3 12s ease-in-out infinite;
+  }
+}
+
+@keyframes aurora-move-1 {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  25% {
+    transform: translate(100px, 50px) scale(1.1);
+  }
+  50% {
+    transform: translate(50px, 100px) scale(0.9);
+  }
+  75% {
+    transform: translate(-50px, 50px) scale(1.05);
+  }
+}
+
+@keyframes aurora-move-2 {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(-80px, -60px) scale(1.15);
+  }
+  66% {
+    transform: translate(-40px, 80px) scale(0.95);
+  }
+}
+
+@keyframes aurora-move-3 {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(80px, -60px) scale(1.2);
   }
 }
 

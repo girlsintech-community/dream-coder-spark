@@ -2,7 +2,7 @@ import { Clock, Calendar, Sparkles } from "lucide-react";
 
 const scheduleItems = [
   { time: "12:00 PM", event: "Hackathon Kickoff", description: "Welcome & ice breakers", icon: Sparkles },
-  { time: "12:30 PM", event: "Building Begins", description: "Start creating magic!", icon: Clock },
+  { time: "12:00 PM", event: "Building Begins", description: "Start creating magic!", icon: Clock },
   { time: "1:00 PM", event: "Frosty Brain Break #1", description: "First quiz session", icon: Sparkles },
   { time: "1:15 PM", event: "Warm Bytes #1", description: "Hacker journey story", icon: Clock },
   { time: "2:00 PM", event: "Frosty Brain Break #2", description: "Second quiz session", icon: Sparkles },
