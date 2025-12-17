@@ -4,6 +4,7 @@ import AboutSection from "@/components/AboutSection";
 import ActivitiesSection from "@/components/ActivitiesSection";
 import ScheduleSection from "@/components/ScheduleSection";
 import PrizeSection from "@/components/PrizeSection";
+import FAQSection from "@/components/FAQSection";
 import Footer from "@/components/Footer";
 import Snowfall from "@/components/Snowfall";
 import BackgroundMusic from "@/components/BackgroundMusic";
@@ -20,6 +21,7 @@ const Index = () => {
         <ActivitiesSection />
         <ScheduleSection />
         <PrizeSection />
+        <FAQSection />
       </main>
       <Footer />
     </div>

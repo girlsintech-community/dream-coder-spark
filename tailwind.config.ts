@@ -61,17 +61,12 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
-        rose: {
-          glow: "hsl(var(--rose-glow))",
-        },
-        mint: {
-          frost: "hsl(var(--mint-frost))",
-        },
-        lavender: {
-          dream: "hsl(var(--lavender-dream))",
-        },
-        golden: {
-          sparkle: "hsl(var(--golden-sparkle))",
+        christmas: {
+          red: "hsl(var(--christmas-red))",
+          green: "hsl(var(--christmas-green))",
+          gold: "hsl(var(--christmas-gold))",
+          white: "hsl(var(--christmas-white))",
+          dark: "hsl(var(--christmas-dark))",
         },
       },
       borderRadius: {
@@ -109,8 +104,8 @@ export default {
           "50%": { opacity: "0.5", transform: "scale(0.8)" },
         },
         "glow-pulse": {
-          "0%, 100%": { boxShadow: "0 0 20px hsl(330 70% 75% / 0.3)" },
-          "50%": { boxShadow: "0 0 40px hsl(330 70% 75% / 0.6)" },
+          "0%, 100%": { boxShadow: "0 0 20px hsl(0 72% 51% / 0.3)" },
+          "50%": { boxShadow: "0 0 40px hsl(0 72% 51% / 0.6)" },
         },
       },
       animation: {
