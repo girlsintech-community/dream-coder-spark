@@ -92,12 +92,13 @@
 @layer base {
   * {
     @apply border-border;
-    cursor: url('/santa-cursor.png'), auto;
+    cursor: url('./santa-cursor.png') 0 0, auto !important;
   }
 
   body {
     @apply bg-background text-foreground font-sans antialiased;
     font-family: 'DM Sans', sans-serif;
+    cursor: url('./santa-cursor.png') 0 0, auto !important;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -105,7 +106,7 @@
   }
 
   a, button {
-    cursor: url('/santa-cursor.png'), pointer;
+    cursor: url('./santa-cursor.png') 0 0, pointer !important;
   }
 }
 

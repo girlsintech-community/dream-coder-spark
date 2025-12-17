@@ -49,6 +49,16 @@ const scheduleItems = [{
   event: "Closing Ceremony",
   description: "Wrap up & next steps",
   icon: Sparkles
+}, {
+  time: "10:00 PM",
+  event: "Voting Begins",
+  description: "24th Dec - Community voting starts",
+  icon: Calendar
+}, {
+  time: "6:00 PM",
+  event: "Voting Ends",
+  description: "25th Dec - Voting closes",
+  icon: Sparkles
 }];
 const ScheduleSection = () => {
   return <section id="schedule" className="py-24 px-4 relative">
