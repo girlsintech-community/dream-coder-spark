@@ -1,42 +1,60 @@
 import { Card } from "@/components/ui/card";
 import { Linkedin, Mic, Users } from "lucide-react";
 
+// Import speaker images
+import aprajitaImg from "@/assets/humans/aprajita.jpg";
+import manishkaImg from "@/assets/humans/manishka.jpg";
+import graceyImg from "@/assets/humans/gracey.jpg";
+import shreyaImg from "@/assets/humans/shreya.jpg";
+import ramyashreeImg from "@/assets/humans/ramyashree.jpg";
+import ajithaImg from "@/assets/humans/ajitha.jpg";
+
+// Import organizing team images
+import adyashaImg from "@/assets/humans/adyasha.jpg";
+import bagavatiImg from "@/assets/humans/bagavati.jpg";
+
 const speakers = [
   {
     name: "Aprajita Verma",
     company: "Mycom",
     designation: "Frontend Architect",
     linkedin: "https://www.linkedin.com/in/aprajita-verma-19522814a/",
+    image: aprajitaImg,
   },
   {
     name: "Manishka Dubey",
     company: "Tinker Techie",
     designation: "Founder",
     linkedin: "https://www.linkedin.com/in/manishka-dubey-871a65202",
+    image: manishkaImg,
   },
   {
     name: "Gracey Dugar",
     company: "LaGravitea",
     designation: "Co Founder",
     linkedin: "https://www.linkedin.com/in/gracey-dugar-71b55821b",
+    image: graceyImg,
   },
   {
     name: "Shreya Sethi",
     company: "Xrvisionlabs Private Limited",
     designation: "Founder",
     linkedin: "https://linkedin.com/in/sethishreya",
+    image: shreyaImg,
   },
   {
     name: "Ramyashree Shetty",
     company: "Radix",
     designation: "Senior Associate - Data Engineer",
     linkedin: "https://www.linkedin.com/in/ramyashree-shetty",
+    image: ramyashreeImg,
   },
   {
     name: "Ajitha Sindhe",
     company: "Code4GovTech",
     designation: "Program Coordinator",
     linkedin: "https://www.linkedin.com/in/ajitha-sindhe-63623b105/",
+    image: ajithaImg,
   },
 ];
 
@@ -46,18 +64,21 @@ const organizingTeam = [
     role: "All at Once",
     location: "Chandigarh",
     linkedin: "https://www.linkedin.com/in/mrmanik/",
+    image: null,
   },
   {
     name: "Bagavati Narayanan",
     role: "Santa's Most Bright Student",
     location: "Chennai",
     linkedin: "https://www.linkedin.com/in/bagavati-narayanan-98484b292/",
+    image: bagavatiImg,
   },
   {
     name: "Adyasha Das",
     role: "Christmas Queen",
     location: "Odisha",
     linkedin: "https://www.linkedin.com/in/adyashadas04/",
+    image: adyashaImg,
   },
 ];
 
@@ -89,10 +110,12 @@ const HumansSection = () => {
                 className="glass-card p-6 hover:border-primary/50 transition-all duration-300 hover:scale-105"
               >
                 <div className="flex flex-col items-center text-center">
-                  <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center mb-4">
-                    <span className="text-2xl font-bold text-primary-foreground">
-                      {speaker.name.charAt(0)}
-                    </span>
+                  <div className="w-20 h-20 rounded-full overflow-hidden mb-4 border-2 border-primary/30">
+                    <img
+                      src={speaker.image}
+                      alt={speaker.name}
+                      className="w-full h-full object-cover"
+                    />
                   </div>
                   <h4 className="text-lg font-display font-bold text-foreground mb-1">
                     {speaker.name}
@@ -132,11 +155,21 @@ const HumansSection = () => {
                 className="glass-card p-6 hover:border-accent/50 transition-all duration-300 hover:scale-105"
               >
                 <div className="flex flex-col items-center text-center">
-                  <div className="w-16 h-16 rounded-full bg-gradient-to-br from-accent to-golden-sparkle flex items-center justify-center mb-4">
-                    <span className="text-2xl font-bold text-primary-foreground">
-                      {member.name.charAt(0)}
-                    </span>
-                  </div>
+                  {member.image ? (
+                    <div className="w-20 h-20 rounded-full overflow-hidden mb-4 border-2 border-accent/30">
+                      <img
+                        src={member.image}
+                        alt={member.name}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                  ) : (
+                    <div className="w-20 h-20 rounded-full bg-gradient-to-br from-accent to-golden-sparkle flex items-center justify-center mb-4">
+                      <span className="text-2xl font-bold text-primary-foreground">
+                        {member.name.charAt(0)}
+                      </span>
+                    </div>
+                  )}
                   <h4 className="text-lg font-display font-bold text-foreground mb-1">
                     {member.name}
                   </h4>
