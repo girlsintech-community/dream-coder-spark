@@ -1,7 +1,7 @@
 import { Card } from "@/components/ui/card";
 import lovableLogo from "@/assets/lovable-logo.png";
-import unstopLogo from "@/assets/unstop-logo.png";
-import code4govtechLogo from "@/assets/code4govtech-logo.png";
+import unstopLogo from "@/assets/unstop-logo.svg";
+import code4govtechLogo from "@/assets/code4govtech-logo.webp";
 
 const partners = [
   {

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Mail } from "lucide-react";
 import gltLogo from "@/assets/glt-logo.png";
 
 const navLinks = [
@@ -64,8 +64,15 @@ const Navbar = () => {
             ))}
           </div>
 
-          {/* CTA Button */}
-          <div className="hidden md:block">
+          {/* Email & CTA Button */}
+          <div className="hidden md:flex items-center gap-4">
+            <a 
+              href="mailto:girlsleadingtech@gmail.com" 
+              className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
+              title="Contact us"
+            >
+              <Mail className="w-5 h-5" />
+            </a>
             <a href="https://unstop.com/hackathons/code-at-christmas-chandigarh-group-of-colleges-cgc-landran-punjab-1609270" target="_blank" rel="noopener noreferrer">
               <Button variant="glow" size="sm">
                 Register Now
@@ -99,6 +106,13 @@ const Navbar = () => {
                   {link.label}
                 </button>
               ))}
+              <a 
+                href="mailto:girlsleadingtech@gmail.com" 
+                className="flex items-center gap-2 text-foreground py-2 border-b border-border/30"
+              >
+                <Mail className="w-5 h-5" />
+                <span>girlsleadingtech@gmail.com</span>
+              </a>
               <a href="https://unstop.com/hackathons/code-at-christmas-chandigarh-group-of-colleges-cgc-landran-punjab-1609270" target="_blank" rel="noopener noreferrer">
                 <Button variant="glow" className="mt-2 w-full">
                   Register Now
