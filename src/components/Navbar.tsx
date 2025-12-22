@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Mail } from "lucide-react";
 import gltLogo from "@/assets/glt-logo.png";
+import IcicleDecoration from "./IcicleDecoration";
 
 const navLinks = [
   { href: "#about", label: "About" },
@@ -123,6 +124,9 @@ const Navbar = () => {
           </div>
         )}
       </div>
+
+      {/* Icicle Decoration - shows when scrolled */}
+      {isScrolled && <IcicleDecoration count={15} />}
     </nav>
   );
 };
