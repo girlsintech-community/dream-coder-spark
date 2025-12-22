@@ -5,6 +5,7 @@ import gltLogo from "@/assets/glt-logo.png";
 
 const navLinks = [
   { href: "#about", label: "About" },
+  { href: "#events", label: "Events" },
   { href: "#activities", label: "Activities" },
   { href: "#schedule", label: "Schedule" },
   { href: "#prizes", label: "Prizes" },
