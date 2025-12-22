@@ -12,6 +12,7 @@ import ajithaImg from "@/assets/humans/ajitha.jpg";
 // Import organizing team images
 import adyashaImg from "@/assets/humans/adyasha.jpg";
 import bagavatiImg from "@/assets/humans/bagavati.jpg";
+import manikImg from "@/assets/humans/manik.jpg";
 
 const speakers = [
   {
@@ -64,7 +65,7 @@ const organizingTeam = [
     role: "All at Once",
     location: "Chandigarh",
     linkedin: "https://www.linkedin.com/in/mrmanik/",
-    image: null,
+    image: manikImg,
   },
   {
     name: "Bagavati Narayanan",

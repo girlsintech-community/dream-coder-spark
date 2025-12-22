@@ -30,7 +30,7 @@ const PrizeSection = () => {
               <ul className="space-y-3 flex-grow">
                 <li className="flex items-start gap-3 text-foreground">
                   <Star className="w-5 h-5 text-golden-sparkle flex-shrink-0 mt-0.5" />
-                  <span className="text-sm">Lovable credits worth several dollars</span>
+                  <span className="text-sm">Lovable credits worth $25 ~ 100 credits</span>
                 </li>
                 <li className="flex items-start gap-3 text-foreground">
                   <Award className="w-5 h-5 text-golden-sparkle flex-shrink-0 mt-0.5" />
