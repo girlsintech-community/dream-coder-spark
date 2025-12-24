@@ -1,15 +1,12 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
-import CountdownTimer from "./CountdownTimer";
-import RegistrationCounter from "./RegistrationCounter";
+import { ArrowRight, Trophy, Users, Eye } from "lucide-react";
 import FloatingPresents from "./FloatingPresents";
 import ConfettiEffect from "./ConfettiEffect";
 import heroBg from "@/assets/hero-bg.jpg";
 import gltLogo from "@/assets/glt-logo.png";
 
 const HeroSection = () => {
-  const hackathonDate = new Date("2025-12-24T12:00:00");
   const [showConfetti, setShowConfetti] = useState(false);
 
   const handleRegisterClick = () => {
@@ -72,28 +69,51 @@ const HeroSection = () => {
             className="text-lg md:text-xl text-foreground/90 mb-4 max-w-2xl animate-fade-in" 
             style={{ animationDelay: "0.2s" }}
           >
-            A 4-hour virtual girls-only hackathon where you build your dream project in a cozy, 
+            A 4-hour virtual girls-only hackathon where you built your dream project in a cozy, 
             magical winter atmosphere ❄️
           </p>
 
-          {/* Registration Counter */}
+          {/* Hackathon Completed Badge */}
           <div 
             className="mb-8 animate-fade-in"
             style={{ animationDelay: "0.25s" }}
           >
-            <RegistrationCounter targetCount={500} />
+            <div className="glass-card px-6 py-3 rounded-full border-2 border-primary/50">
+              <span className="text-primary font-semibold text-lg">🎄 Hackathon Completed! 🎄</span>
+            </div>
           </div>
 
-          {/* Event Details */}
+          {/* Stats */}
           <div 
-            className="flex flex-wrap justify-center gap-4 mb-10 animate-fade-in" 
+            className="grid grid-cols-3 gap-4 md:gap-8 mb-10 animate-fade-in w-full max-w-2xl" 
             style={{ animationDelay: "0.3s" }}
           >
+            <div className="glass-card p-4 md:p-6 rounded-xl text-center">
+              <div className="flex justify-center mb-2">
+                <Users className="w-6 h-6 md:w-8 md:h-8 text-primary" />
+              </div>
+              <div className="text-2xl md:text-4xl font-bold text-foreground">727</div>
+              <div className="text-xs md:text-sm text-muted-foreground">Registrations</div>
+            </div>
+            <div className="glass-card p-4 md:p-6 rounded-xl text-center">
+              <div className="flex justify-center mb-2">
+                <Trophy className="w-6 h-6 md:w-8 md:h-8 text-accent" />
+              </div>
+              <div className="text-2xl md:text-4xl font-bold text-foreground">107</div>
+              <div className="text-xs md:text-sm text-muted-foreground">Submissions</div>
+            </div>
+            <div className="glass-card p-4 md:p-6 rounded-xl text-center">
+              <div className="flex justify-center mb-2">
+                <Eye className="w-6 h-6 md:w-8 md:h-8 text-secondary" />
+              </div>
+              <div className="text-2xl md:text-4xl font-bold text-foreground">75K+</div>
+              <div className="text-xs md:text-sm text-muted-foreground">Impressions</div>
+            </div>
           </div>
 
           {/* CTA Buttons */}
           <div 
-            className="flex flex-col sm:flex-row gap-4 mb-16 animate-fade-in" 
+            className="flex flex-col sm:flex-row gap-4 animate-fade-in" 
             style={{ animationDelay: "0.4s" }}
           >
             <Button 
@@ -102,7 +122,7 @@ const HeroSection = () => {
               className="group"
               onClick={handleRegisterClick}
             >
-              Register Now
+              View on Unstop
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Button>
             <a 
@@ -114,17 +134,6 @@ const HeroSection = () => {
                 Join WhatsApp Group
               </Button>
             </a>
-          </div>
-
-          {/* Countdown - Full Width */}
-          <div 
-            className="w-full max-w-5xl animate-fade-in" 
-            style={{ animationDelay: "0.5s" }}
-          >
-            <p className="text-sm text-foreground/80 mb-6 uppercase tracking-wider font-semibold">
-              Hackathon starts in
-            </p>
-            <CountdownTimer targetDate={hackathonDate} />
           </div>
         </div>
       </div>
