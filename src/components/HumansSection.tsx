@@ -15,6 +15,10 @@ import ajithaImg from "@/assets/humans/ajitha.jpg";
 import adyashaImg from "@/assets/humans/adyasha.jpg";
 import bagavatiImg from "@/assets/humans/bagavati.jpg";
 import manikImg from "@/assets/humans/manik.jpg";
+import ishitaSoniImg from "@/assets/humans/ishita-soni.jpg";
+import ananyaImg from "@/assets/humans/ananya.jpg";
+import akankshaImg from "@/assets/humans/akanksha.jpg";
+import diyaImg from "@/assets/humans/diya.jpg";
 
 const speakers = [
   {
@@ -59,6 +63,13 @@ const speakers = [
     linkedin: "https://www.linkedin.com/in/ajitha-sindhe-63623b105/",
     image: ajithaImg,
   },
+  {
+    name: "Ernestine Lerisha John",
+    company: "",
+    designation: "AI & Quantum Researcher",
+    linkedin: "https://www.linkedin.com/in/ernestine-lerisha-john-4a863a204/",
+    image: null,
+  },
 ];
 
 const organizingTeam = [
@@ -83,6 +94,34 @@ const organizingTeam = [
     linkedin: "https://www.linkedin.com/in/adyashadas04/",
     image: adyashaImg,
   },
+  {
+    name: "Ishita Soni",
+    role: "Organizing Team",
+    location: "Jaipur",
+    linkedin: "https://www.linkedin.com/in/ishita-soni-work/",
+    image: ishitaSoniImg,
+  },
+  {
+    name: "Ananya Agarwal",
+    role: "Organizing Team",
+    location: "Mumbai",
+    linkedin: "https://www.linkedin.com/in/ananya-agarwal-director/",
+    image: ananyaImg,
+  },
+  {
+    name: "Akanksha Singh",
+    role: "Organizing Team",
+    location: "Mumbai",
+    linkedin: "https://www.linkedin.com/in/aakanksha-singh1/",
+    image: akankshaImg,
+  },
+  {
+    name: "Diya Bhat",
+    role: "Organizing Team",
+    location: "Bengaluru",
+    linkedin: "https://www.linkedin.com/in/diya-k-bhat-75b450257/",
+    image: diyaImg,
+  },
 ];
 
 const HumansSection = () => {
@@ -95,7 +134,7 @@ const HumansSection = () => {
               The <span className="gradient-text">Humans</span> Behind
             </h2>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-              Meet the amazing people making this event possible
+              Meet the amazing people who made this event possible
             </p>
           </div>
         </ScrollAnimation>
@@ -110,7 +149,7 @@ const HumansSection = () => {
               </h3>
             </div>
           </ScrollAnimation>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {speakers.map((speaker, index) => (
               <ScrollAnimation 
                 key={speaker.name} 
@@ -120,13 +159,21 @@ const HumansSection = () => {
                 <Card className="glass-card p-6 hover:border-primary/50 transition-all duration-300 hover:scale-105 h-full">
                   <div className="flex flex-col items-center text-center">
                     <div className="relative w-20 h-20 rounded-full overflow-visible mb-4">
-                      <div className="w-full h-full rounded-full overflow-hidden border-2 border-primary/30">
-                        <img
-                          src={speaker.image}
-                          alt={speaker.name}
-                          className="w-full h-full object-cover"
-                        />
-                      </div>
+                      {speaker.image ? (
+                        <div className="w-full h-full rounded-full overflow-hidden border-2 border-primary/30">
+                          <img
+                            src={speaker.image}
+                            alt={speaker.name}
+                            className="w-full h-full object-cover"
+                          />
+                        </div>
+                      ) : (
+                        <div className="w-full h-full rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center">
+                          <span className="text-2xl font-bold text-primary-foreground">
+                            {speaker.name.charAt(0)}
+                          </span>
+                        </div>
+                      )}
                       <SantaHat size={28} />
                     </div>
                     <h4 className="text-lg font-display font-bold text-foreground mb-1">
@@ -135,9 +182,11 @@ const HumansSection = () => {
                     <p className="text-accent font-semibold text-sm mb-1">
                       {speaker.designation}
                     </p>
-                    <p className="text-muted-foreground text-sm mb-4">
-                      {speaker.company}
-                    </p>
+                    {speaker.company && (
+                      <p className="text-muted-foreground text-sm mb-4">
+                        {speaker.company}
+                      </p>
+                    )}
                     <a
                       href={speaker.linkedin}
                       target="_blank"
@@ -163,7 +212,7 @@ const HumansSection = () => {
               </h3>
             </div>
           </ScrollAnimation>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-3xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 max-w-5xl mx-auto">
             {organizingTeam.map((member, index) => (
               <ScrollAnimation 
                 key={member.name} 
