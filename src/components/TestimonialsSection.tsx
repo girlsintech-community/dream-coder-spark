@@ -140,20 +140,20 @@ const TestimonialsSection = () => {
           </div>
         </ScrollAnimation>
 
-        {/* Testimonials Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* Testimonials Masonry Grid */}
+        <div className="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
           {testimonials.map((testimonial, index) => (
             <ScrollAnimation 
               key={testimonial.name} 
               animation="scale-in" 
               delay={100 + index * 50}
             >
-              <Card className="glass-card p-6 hover:border-primary/50 transition-all duration-300 h-full flex flex-col">
+              <Card className="glass-card p-6 hover:border-primary/50 transition-all duration-300 break-inside-avoid mb-6">
                 {/* Quote Icon */}
                 <Quote className="w-8 h-8 text-primary/30 mb-4" />
                 
                 {/* Quote Text */}
-                <p className="text-foreground/90 text-sm leading-relaxed mb-6 flex-grow">
+                <p className="text-foreground/90 text-sm leading-relaxed mb-6">
                   "{testimonial.quote}"
                 </p>
                 

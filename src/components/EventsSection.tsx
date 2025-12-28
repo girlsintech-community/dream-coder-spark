@@ -67,8 +67,8 @@ const sessions = [
     speaker: "Aprajita Verma",
     designation: "Frontend Architect @Mycom",
     linkedin: "https://www.linkedin.com/in/aprajita-verma-19522814a/",
-    recording: null,
-    videoId: null,
+    recording: "https://youtu.be/4WNsXuXLIw8?si=BzmaWrtoYxRft1Do",
+    videoId: "4WNsXuXLIw8",
   },
   {
     date: "24 Dec 2025",
@@ -77,8 +77,8 @@ const sessions = [
     speaker: "Ajitha Sindhe",
     designation: "Program Coordinator @Code4GovTech",
     linkedin: "https://www.linkedin.com/in/ajitha-sindhe-63623b105/",
-    recording: null,
-    videoId: null,
+    recording: "https://youtu.be/7j3yI3vZOvE?si=ii50zYa06nE8JEff",
+    videoId: "7j3yI3vZOvE",
   },
 ];
 

@@ -10,6 +10,7 @@ import graceyImg from "@/assets/humans/gracey.jpg";
 import shreyaImg from "@/assets/humans/shreya.jpg";
 import ramyashreeImg from "@/assets/humans/ramyashree.jpg";
 import ajithaImg from "@/assets/humans/ajitha.jpg";
+import ernestineImg from "@/assets/humans/ernestine.jpg";
 
 // Import organizing team images
 import adyashaImg from "@/assets/humans/adyasha.jpg";
@@ -68,7 +69,7 @@ const speakers = [
     company: "",
     designation: "AI & Quantum Researcher",
     linkedin: "https://www.linkedin.com/in/ernestine-lerisha-john-4a863a204/",
-    image: null,
+    image: ernestineImg,
   },
 ];
 
