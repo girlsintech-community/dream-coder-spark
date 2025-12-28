@@ -1,72 +1,74 @@
-import { Trophy, Linkedin, Crown } from "lucide-react";
+import { Trophy, Linkedin, Crown, Star } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import SantaHat from "./SantaHat";
 
+// Import hacker images
+import lithikaImg from "@/assets/hackers/lithika.jpg";
+import dyutiImg from "@/assets/hackers/dyuti.jpg";
+import snehaImg from "@/assets/hackers/sneha.jpg";
+import ishitaImg from "@/assets/hackers/ishita.jpg";
+import rishikaImg from "@/assets/hackers/rishika.jpg";
+import sreejaImg from "@/assets/hackers/sreeja.jpg";
+import akhilaImg from "@/assets/hackers/akhila.jpg";
+import honeyImg from "@/assets/hackers/honey.jpg";
+import nandikaImg from "@/assets/hackers/nandika.jpg";
+import aditiImg from "@/assets/hackers/aditi.jpg";
+
+// Winner
+const winner = {
+  name: "Lithika Murugesan",
+  linkedin: "https://www.linkedin.com/in/lithika-murugesan-459436258",
+  image: lithikaImg,
+};
+
+// Top 10 hackers (no specific ranking)
 const topHackers = [
   {
     name: "Dyuti Haranee L",
     linkedin: "https://www.linkedin.com/in/dyuti-haranee-9b6649291",
-    rank: 1,
+    image: dyutiImg,
   },
   {
     name: "Sneha Sonkar",
     linkedin: "https://www.linkedin.com/in/snehasonkar/",
-    rank: 2,
+    image: snehaImg,
   },
   {
     name: "Ishita Singh",
     linkedin: null,
-    rank: 3,
+    image: ishitaImg,
   },
   {
     name: "Rishika Lawankar",
     linkedin: "https://www.linkedin.com/in/rishika-lawankar-67b9b1334",
-    rank: 4,
+    image: rishikaImg,
   },
   {
     name: "Sreeja Das",
     linkedin: "https://in.linkedin.com/in/sreeja-das",
-    rank: 5,
+    image: sreejaImg,
   },
   {
     name: "Akhila Sunesh",
     linkedin: "https://www.linkedin.com/in/akhila-sunesh",
-    rank: 6,
+    image: akhilaImg,
   },
   {
     name: "Honey Priya",
     linkedin: "https://www.linkedin.com/in/honeypriya/",
-    rank: 7,
+    image: honeyImg,
   },
   {
     name: "Nandika Gupta",
     linkedin: "https://www.linkedin.com/in/nandika-gupta/",
-    rank: 8,
+    image: nandikaImg,
   },
   {
     name: "Aditi Chourasia",
     linkedin: "https://www.linkedin.com/in/contactaditi/",
-    rank: 9,
-  },
-  {
-    name: "Lithika Murugesan",
-    linkedin: "https://www.linkedin.com/in/lithika-murugesan-459436258",
-    rank: 10,
+    image: aditiImg,
   },
 ];
-
-const getRankColor = (rank: number) => {
-  if (rank === 1) return "from-yellow-400 to-amber-600";
-  if (rank === 2) return "from-gray-300 to-gray-500";
-  if (rank === 3) return "from-amber-600 to-amber-800";
-  return "from-primary/50 to-primary";
-};
-
-const getRankBadge = (rank: number) => {
-  if (rank === 1) return "🥇";
-  if (rank === 2) return "🥈";
-  if (rank === 3) return "🥉";
-  return `#${rank}`;
-};
 
 const WallOfFame = () => {
   const { ref, isVisible } = useScrollAnimation();
@@ -91,111 +93,84 @@ const WallOfFame = () => {
             Wall of <span className="gradient-text">Fame</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Celebrating our top 10 hackers who shipped amazing projects during the hackathon
+            Celebrating our winner and top hackers who shipped amazing projects during the hackathon
           </p>
         </div>
 
-        {/* Top 3 Featured */}
-        <div className="flex flex-col md:flex-row items-end justify-center gap-4 md:gap-8 mb-12">
-          {/* 2nd Place */}
-          <div className={`order-2 md:order-1 transition-all duration-700 delay-200 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
-            <div className="glass-card p-6 rounded-2xl text-center hover:scale-105 transition-transform duration-300 w-full md:w-48">
-              <div className="text-4xl mb-3">{getRankBadge(2)}</div>
-              <div className={`w-20 h-20 mx-auto rounded-full bg-gradient-to-br ${getRankColor(2)} p-1 mb-4`}>
-                <div className="w-full h-full rounded-full bg-background flex items-center justify-center text-2xl font-bold">
-                  {topHackers[1].name.charAt(0)}
+        {/* Winner Featured */}
+        <div className={`flex justify-center mb-16 transition-all duration-700 delay-100 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
+          <div className="glass-card p-8 rounded-2xl text-center hover:scale-105 transition-transform duration-300 relative w-full max-w-sm border-2 border-yellow-500/50">
+            <Crown className="w-10 h-10 text-yellow-500 absolute -top-5 left-1/2 -translate-x-1/2" />
+            <div className="text-5xl mb-4">🏆</div>
+            <div className="relative w-28 h-28 mx-auto mb-4">
+              <div className="w-full h-full rounded-full bg-gradient-to-br from-yellow-400 to-amber-600 p-1 animate-pulse-glow">
+                <div className="w-full h-full rounded-full overflow-hidden">
+                  <img
+                    src={winner.image}
+                    alt={winner.name}
+                    className="w-full h-full object-cover"
+                  />
                 </div>
               </div>
-              <h3 className="font-semibold text-lg mb-2">{topHackers[1].name}</h3>
-              {topHackers[1].linkedin && (
-                <a
-                  href={topHackers[1].linkedin}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-primary transition-colors"
-                >
-                  <Linkedin className="w-4 h-4" />
-                  Connect
-                </a>
-              )}
+              <SantaHat size={36} />
             </div>
-          </div>
-
-          {/* 1st Place */}
-          <div className={`order-1 md:order-2 transition-all duration-700 delay-100 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
-            <div className="glass-card p-8 rounded-2xl text-center hover:scale-105 transition-transform duration-300 relative w-full md:w-56 border-2 border-yellow-500/50">
-              <Crown className="w-8 h-8 text-yellow-500 absolute -top-4 left-1/2 -translate-x-1/2" />
-              <div className="text-5xl mb-4">{getRankBadge(1)}</div>
-              <div className={`w-24 h-24 mx-auto rounded-full bg-gradient-to-br ${getRankColor(1)} p-1 mb-4 animate-pulse-glow`}>
-                <div className="w-full h-full rounded-full bg-background flex items-center justify-center text-3xl font-bold">
-                  {topHackers[0].name.charAt(0)}
-                </div>
-              </div>
-              <h3 className="font-bold text-xl mb-2">{topHackers[0].name}</h3>
-              {topHackers[0].linkedin && (
-                <a
-                  href={topHackers[0].linkedin}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-primary transition-colors"
-                >
-                  <Linkedin className="w-4 h-4" />
-                  Connect
-                </a>
-              )}
+            <div className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-yellow-500/20 text-yellow-400 text-sm font-medium mb-3">
+              <Crown className="w-4 h-4" />
+              Winner
             </div>
-          </div>
-
-          {/* 3rd Place */}
-          <div className={`order-3 transition-all duration-700 delay-300 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
-            <div className="glass-card p-6 rounded-2xl text-center hover:scale-105 transition-transform duration-300 w-full md:w-48">
-              <div className="text-4xl mb-3">{getRankBadge(3)}</div>
-              <div className={`w-20 h-20 mx-auto rounded-full bg-gradient-to-br ${getRankColor(3)} p-1 mb-4`}>
-                <div className="w-full h-full rounded-full bg-background flex items-center justify-center text-2xl font-bold">
-                  {topHackers[2].name.charAt(0)}
-                </div>
-              </div>
-              <h3 className="font-semibold text-lg mb-2">{topHackers[2].name}</h3>
-              {topHackers[2].linkedin && (
-                <a
-                  href={topHackers[2].linkedin}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-primary transition-colors"
-                >
-                  <Linkedin className="w-4 h-4" />
-                  Connect
-                </a>
-              )}
-            </div>
+            <h3 className="font-bold text-2xl mb-3">{winner.name}</h3>
+            {winner.linkedin && (
+              <a
+                href={winner.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
+              >
+                <Linkedin className="w-5 h-5" />
+                Connect on LinkedIn
+              </a>
+            )}
           </div>
         </div>
 
-        {/* Ranks 4-10 */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-4">
-          {topHackers.slice(3).map((hacker, index) => (
+        {/* Top 10 Hackers */}
+        <div className={`text-center mb-8 transition-all duration-700 delay-200 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/20 border border-primary/30 mb-4">
+            <Star className="w-4 h-4 text-primary" />
+            <span className="text-primary text-sm font-medium">Top 10 Hackers</span>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+          {topHackers.map((hacker, index) => (
             <div
               key={hacker.name}
-              className={`glass-card p-4 rounded-xl text-center hover:scale-105 transition-all duration-300 ${
+              className={`glass-card p-4 rounded-xl text-center hover:scale-105 transition-all duration-300 hover:border-primary/50 ${
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
               }`}
-              style={{ transitionDelay: `${400 + index * 100}ms` }}
+              style={{ transitionDelay: `${300 + index * 50}ms` }}
             >
-              <div className="text-lg font-bold text-primary mb-2">{getRankBadge(hacker.rank)}</div>
-              <div className={`w-12 h-12 mx-auto rounded-full bg-gradient-to-br ${getRankColor(hacker.rank)} p-0.5 mb-3`}>
-                <div className="w-full h-full rounded-full bg-background flex items-center justify-center text-lg font-semibold">
-                  {hacker.name.charAt(0)}
+              <div className="relative w-16 h-16 mx-auto mb-3">
+                <div className="w-full h-full rounded-full bg-gradient-to-br from-primary/50 to-primary p-0.5">
+                  <div className="w-full h-full rounded-full overflow-hidden">
+                    <img
+                      src={hacker.image}
+                      alt={hacker.name}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
                 </div>
+                <SantaHat size={24} />
               </div>
-              <h3 className="font-medium text-sm mb-1 line-clamp-2">{hacker.name}</h3>
+              <h3 className="font-medium text-sm mb-2 line-clamp-2">{hacker.name}</h3>
               {hacker.linkedin && (
                 <a
                   href={hacker.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center w-6 h-6 text-muted-foreground hover:text-primary transition-colors"
+                  className="inline-flex items-center justify-center w-7 h-7 rounded-full bg-primary/10 text-muted-foreground hover:text-primary hover:bg-primary/20 transition-colors"
                 >
-                  <Linkedin className="w-3.5 h-3.5" />
+                  <Linkedin className="w-4 h-4" />
                 </a>
               )}
             </div>
