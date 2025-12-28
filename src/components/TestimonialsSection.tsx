@@ -112,14 +112,6 @@ const testimonials = [
     linkedin: "https://www.linkedin.com/in/maithili-pandey-3941202b6",
     image: null,
   },
-  {
-    name: "Ishita Singh",
-    city: "Kalyan",
-    state: "Maharashtra",
-    quote: "Less time was given",
-    linkedin: null,
-    image: null,
-  },
 ];
 
 const TestimonialsSection = () => {
