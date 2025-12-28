@@ -3,6 +3,7 @@ import HeroSection from "@/components/HeroSection";
 import AboutSection from "@/components/AboutSection";
 import EventsSection from "@/components/EventsSection";
 import WallOfFame from "@/components/WallOfFame";
+import ProjectsGallery from "@/components/ProjectsGallery";
 import ActivitiesSection from "@/components/ActivitiesSection";
 import PartnersSection from "@/components/PartnersSection";
 import HumansSection from "@/components/HumansSection";
@@ -34,6 +35,8 @@ const Index = () => {
         <SectionDivider variant="simple" />
         <WallOfFame />
         <SectionDivider variant="garland" />
+        <ProjectsGallery />
+        <SectionDivider variant="lights" />
         <ActivitiesSection />
         <SectionDivider variant="lights" />
         <PartnersSection />
