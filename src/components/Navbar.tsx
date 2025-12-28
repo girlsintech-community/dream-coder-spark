@@ -7,9 +7,8 @@ import IcicleDecoration from "./IcicleDecoration";
 const navLinks = [
   { href: "#about", label: "About" },
   { href: "#events", label: "Events" },
+  { href: "#wall-of-fame", label: "Wall of Fame" },
   { href: "#activities", label: "Activities" },
-  { href: "#schedule", label: "Schedule" },
-  { href: "#prizes", label: "Prizes" },
   { href: "#partners", label: "Partners" },
   { href: "#humans", label: "Team" },
   { href: "#faq", label: "FAQs" },
