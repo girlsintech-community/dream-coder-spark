@@ -1,8 +1,8 @@
-import { Folder, Github, ExternalLink, Search } from "lucide-react";
+import { Folder, Github, ExternalLink, Search, ChevronDown } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { useState, useMemo } from "react";
 import { Input } from "@/components/ui/input";
-import SantaHat from "./SantaHat";
+import { Button } from "@/components/ui/button";
 
 const projects = [
   { name: "Aarohi Chadha", college: "IGDTUW", github: "https://github.com/aarohichadha/focus-dock-aid.git", live: "https://focus-dock-aid.lovable.app" },
@@ -113,9 +113,68 @@ const projects = [
   { name: "Nandika Gupta", college: "PESU Bengaluru", github: "https://github.com/Nandika-Gupta/Wake_Up_Sid", live: "https://wake-up-sid.vercel.app/" },
 ];
 
+// Extract project title from GitHub URL or Live URL
+const extractProjectTitle = (project: typeof projects[0]): string => {
+  // Try to extract from GitHub URL first
+  if (project.github) {
+    const match = project.github.match(/github\.com\/[^/]+\/([^/.]+)/);
+    if (match) {
+      return formatTitle(match[1]);
+    }
+  }
+  
+  // Try to extract from live URL
+  if (project.live) {
+    // Handle lovable.app URLs
+    const lovableMatch = project.live.match(/([^/.]+)\.lovable\.app/);
+    if (lovableMatch) {
+      return formatTitle(lovableMatch[1]);
+    }
+    
+    // Handle vercel.app URLs
+    const vercelMatch = project.live.match(/([^/.]+)\.vercel\.app/);
+    if (vercelMatch) {
+      return formatTitle(vercelMatch[1]);
+    }
+    
+    // Handle github.io URLs
+    const githubIoMatch = project.live.match(/github\.io\/([^/]+)/);
+    if (githubIoMatch) {
+      return formatTitle(githubIoMatch[1]);
+    }
+    
+    // Handle replit.app URLs
+    const replitMatch = project.live.match(/([^/.-]+)--/);
+    if (replitMatch) {
+      return formatTitle(replitMatch[1]);
+    }
+    
+    // Handle netlify.app URLs
+    const netlifyMatch = project.live.match(/([^/.]+)\.netlify\.app/);
+    if (netlifyMatch) {
+      return formatTitle(netlifyMatch[1]);
+    }
+  }
+  
+  return "Project";
+};
+
+// Format title from slug
+const formatTitle = (slug: string): string => {
+  return slug
+    .replace(/-/g, ' ')
+    .replace(/_/g, ' ')
+    .split(' ')
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+    .join(' ');
+};
+
+const INITIAL_DISPLAY_COUNT = 12;
+
 const ProjectsGallery = () => {
   const { ref, isVisible } = useScrollAnimation();
   const [searchQuery, setSearchQuery] = useState("");
+  const [showAll, setShowAll] = useState(false);
 
   const filteredProjects = useMemo(() => {
     if (!searchQuery.trim()) return projects;
@@ -126,6 +185,13 @@ const ProjectsGallery = () => {
         project.college.toLowerCase().includes(query)
     );
   }, [searchQuery]);
+
+  const displayedProjects = useMemo(() => {
+    if (showAll || searchQuery.trim()) return filteredProjects;
+    return filteredProjects.slice(0, INITIAL_DISPLAY_COUNT);
+  }, [filteredProjects, showAll, searchQuery]);
+
+  const hasMore = filteredProjects.length > INITIAL_DISPLAY_COUNT && !showAll && !searchQuery.trim();
 
   return (
     <section id="projects" className="py-20 relative overflow-hidden">
@@ -167,59 +233,71 @@ const ProjectsGallery = () => {
 
         {/* Projects Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-          {filteredProjects.map((project, index) => (
-            <div
-              key={`${project.name}-${index}`}
-              className={`glass-card p-4 rounded-xl hover:scale-105 transition-all duration-300 hover:border-secondary/50 ${
-                isVisible
-                  ? "opacity-100 translate-y-0"
-                  : "opacity-0 translate-y-10"
-              }`}
-              style={{ transitionDelay: `${100 + (index % 20) * 30}ms` }}
-            >
-              <div className="relative w-12 h-12 mx-auto mb-3">
-                <div className="w-full h-full rounded-full bg-gradient-to-br from-secondary/50 to-secondary flex items-center justify-center">
-                  <span className="text-lg font-bold text-secondary-foreground">
-                    {project.name.charAt(0)}
-                  </span>
+          {displayedProjects.map((project, index) => {
+            const projectTitle = extractProjectTitle(project);
+            return (
+              <div
+                key={`${project.name}-${index}`}
+                className={`glass-card p-4 rounded-xl hover:scale-105 transition-all duration-300 hover:border-secondary/50 ${
+                  isVisible
+                    ? "opacity-100 translate-y-0"
+                    : "opacity-0 translate-y-10"
+                }`}
+                style={{ transitionDelay: `${100 + (index % 20) * 30}ms` }}
+              >
+                <h3 className="font-semibold text-sm text-center mb-2 line-clamp-2 min-h-[2.5rem]">
+                  {projectTitle}
+                </h3>
+                <p className="text-xs text-muted-foreground text-center mb-1">
+                  Built by <span className="text-foreground font-medium">{project.name}</span>
+                </p>
+                <p className="text-xs text-muted-foreground text-center mb-3">
+                  from {project.college}
+                </p>
+
+                <div className="flex justify-center gap-2">
+                  {project.github && (
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-primary/10 text-muted-foreground hover:text-primary hover:bg-primary/20 transition-colors"
+                      title="GitHub Repo"
+                    >
+                      <Github className="w-4 h-4" />
+                    </a>
+                  )}
+                  {project.live && (
+                    <a
+                      href={project.live}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-secondary/10 text-muted-foreground hover:text-secondary hover:bg-secondary/20 transition-colors"
+                      title="Live Demo"
+                    >
+                      <ExternalLink className="w-4 h-4" />
+                    </a>
+                  )}
                 </div>
-                <SantaHat size={20} />
               </div>
-
-              <h3 className="font-medium text-sm text-center mb-1 line-clamp-1">
-                {project.name}
-              </h3>
-              <p className="text-xs text-muted-foreground text-center mb-3 line-clamp-1">
-                {project.college}
-              </p>
-
-              <div className="flex justify-center gap-2">
-                {project.github && (
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-primary/10 text-muted-foreground hover:text-primary hover:bg-primary/20 transition-colors"
-                    title="GitHub Repo"
-                  >
-                    <Github className="w-4 h-4" />
-                  </a>
-                )}
-                {project.live && (
-                  <a
-                    href={project.live}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-secondary/10 text-muted-foreground hover:text-secondary hover:bg-secondary/20 transition-colors"
-                    title="Live Demo"
-                  >
-                    <ExternalLink className="w-4 h-4" />
-                  </a>
-                )}
-              </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
+
+        {/* Show More Button */}
+        {hasMore && (
+          <div className="text-center mt-8">
+            <Button
+              variant="outline"
+              size="lg"
+              onClick={() => setShowAll(true)}
+              className="group"
+            >
+              Show All {filteredProjects.length} Projects
+              <ChevronDown className="w-4 h-4 ml-2 group-hover:translate-y-1 transition-transform" />
+            </Button>
+          </div>
+        )}
 
         {filteredProjects.length === 0 && (
           <div className="text-center py-12">
