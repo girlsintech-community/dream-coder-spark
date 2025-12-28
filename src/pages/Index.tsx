@@ -2,9 +2,8 @@ import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import AboutSection from "@/components/AboutSection";
 import EventsSection from "@/components/EventsSection";
+import WallOfFame from "@/components/WallOfFame";
 import ActivitiesSection from "@/components/ActivitiesSection";
-import ScheduleSection from "@/components/ScheduleSection";
-import PrizeSection from "@/components/PrizeSection";
 import PartnersSection from "@/components/PartnersSection";
 import HumansSection from "@/components/HumansSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
@@ -33,18 +32,16 @@ const Index = () => {
         <SectionDivider variant="lights" />
         <EventsSection />
         <SectionDivider variant="simple" />
+        <WallOfFame />
+        <SectionDivider variant="garland" />
         <ActivitiesSection />
-        <SectionDivider variant="garland" />
-        <ScheduleSection />
         <SectionDivider variant="lights" />
-        <PrizeSection />
-        <SectionDivider variant="simple" />
         <PartnersSection />
-        <SectionDivider variant="garland" />
-        <HumansSection />
-        <SectionDivider variant="lights" />
-        <TestimonialsSection />
         <SectionDivider variant="simple" />
+        <HumansSection />
+        <SectionDivider variant="garland" />
+        <TestimonialsSection />
+        <SectionDivider variant="lights" />
         <FAQSection />
       </main>
       <Footer />
