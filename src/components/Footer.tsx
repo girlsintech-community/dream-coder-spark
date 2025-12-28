@@ -138,6 +138,15 @@ const Footer = () => {
                   <ExternalLink className="w-5 h-5 text-primary" />
                   <span>HackAura</span>
                 </a>
+                <a 
+                  href="https://hackmyvalentine.girlsleadingtech.com/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  <ExternalLink className="w-5 h-5 text-primary" />
+                  <span>Hack My Valentine</span>
+                </a>
                 <div className="flex items-center gap-2 text-muted-foreground/50">
                   <ExternalLink className="w-5 h-5" />
                   <span>ML Cohort</span>
